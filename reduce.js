@@ -130,11 +130,18 @@ Examples:
        ]
 */
 
+
+
+
+///solution///
 function addKeyAndValue(arr, key, value) {
 
     return arr.reduce(function(acc,next,idx){
+
         acc[idx][key] = value;
+
         return acc;
+        
     },arr);
 
 }
@@ -167,14 +174,18 @@ Examples:
     partition(names, isLongerThanThreeCharacters) // [['Elie', 'Colt', 'Matt'], ['Tim']]
 */
 
+
+///solutions///
 function partition(arr, callback) {
+    //
     return arr.reduce(function(acc,next){
+
         if(callback(next)){
-            acc[0].push(next);
+            acc[0].push(next);//add to first array
         } else {
-            acc[1].push(next);
+            acc[1].push(next); //add to second array
         }
-        return acc;
-    }, [[],[]]);
+        return acc; //returns to one of the arrays
+    }, [[],[]]);//returns two arrays
 
 }
