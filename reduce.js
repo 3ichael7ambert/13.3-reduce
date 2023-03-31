@@ -32,11 +32,13 @@ function extractValue(arr, key) {
 //   }, [])
 
 
-    return arr.reduce(function(accum, object) {
+    return arr.reduce(function(accum, object) {  ///
         ///as long as it's not empty
-        if (key in object) accum.push(object[key]);
-        return accum;
-    }, []);
+        if (key in object) ///
+        accum.push(object[key]); ///
+        return accum; ///
+    }, []); ///
+    
 
 
     ////SOLUTION////
@@ -44,10 +46,24 @@ function extractValue(arr, key) {
         //     acc.push(next[key]);
         //     return acc;
         // },[]);
-    
+// }
 
-}
 
+    ////SOLUTION////
+        // return arr.reduce(function(acc,next){
+        //     acc.push(next[key]);
+        //     return acc;
+        // },[]);
+// }
+
+
+
+////SOLUTION////
+    // return arr.reduce(function(acc,next){
+    //     acc.push(next[key]);
+    //     return acc;
+    // },[]);
+// }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -71,23 +87,27 @@ function vowelCount(str) {
 
 
     ///USEING FOREACH METHOD - Works///
-    // let splitArr = str.split("");
-    // let obj = {};
-    // const vowels = "aeiou";
+    let splitArr = str.split("");
+    let obj = {};
+    const vowels = "aeiou";
   
-    // splitArr.forEach(function(letter) {
-    //   let lowerCasedLetter = letter.toLowerCase()
-    //   if (vowels.indexOf(lowerCasedLetter) !== -1) {
-    //     if (obj[lowerCasedLetter]) {
-    //       obj[lowerCasedLetter]++;
-    //     } else {
-    //       obj[lowerCasedLetter] = 1;
-    //     }
-    //   }
-    // });
-    // return obj;
+    splitArr.forEach(function(letter) {
+      let lowerCasedLetter = letter.toLowerCase()
+      if (vowels.indexOf(lowerCasedLetter) !== -1) {
+        if (obj[lowerCasedLetter]) {
+          obj[lowerCasedLetter]++;
+        } else {
+          obj[lowerCasedLetter] = 1;
+        }
+      }
+      
+    });
+    return obj;
+}
 
+///
 
+function vowelCount(str) {
     const vowels = "aeiou";
 
     return str.split('').reduce(function(acc,next)  {
@@ -116,22 +136,43 @@ function vowelCount(str) {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /*
-Write a function called addKeyAndValue which accepts an array of objects and returns the array of objects passed to it with each object now including the key and value passed to the function.
+Write a function called addKeyAndValue which accepts 
+an array of objects and returns the array of objects passed to it with each object now including the 
+key and value passed to the function.
 
-Examples:
+Examples:*/
     const arr = [{name: 'Elie'}, {name: 'Tim'}, {name: 'Matt'}, {name: 'Colt'}];
     
-    addKeyAndValue(arr, 'title', 'Instructor') // 
+    addKeyAndValue(arr, 'title', 'Instructor') 
+    
+    // 
       [
         {title: 'Instructor', name: 'Elie'}, 
         {title: 'Instructor', name: 'Tim'}, 
         {title: 'Instructor', name: 'Matt'}, 
         {title: 'Instructor', name: 'Colt'}
        ]
-*/
 
 
 
+function addKeyAndValue(arr, key, value) {
+    arr.reduce()
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+addKeyAndValue(arr, 'title', 'Instructor') 
 
 ///solution///
 function addKeyAndValue(arr, key, value) {
@@ -145,6 +186,8 @@ function addKeyAndValue(arr, key, value) {
     },arr);
 
 }
+
+
 
 
 
@@ -189,3 +232,45 @@ function partition(arr, callback) {
     }, [[],[]]);//returns two arrays
 
 }
+
+
+
+
+
+
+
+
+
+//////////
+// random practice
+// //////
+
+
+let arr = ['a', 'b', 'c', 'd', 'e'];
+function add(x, y) {
+  return x + y;
+}
+arr.reduce(add);
+
+//'abcde'
+let arr = [1,2,3,4,5,6];
+function add(x, y) {
+  return x + y;
+}
+arr.reduce(add);
+//21
+let arr = [1,2,3,4,5,6];
+function multiply(x, y) {
+  return x * y;
+}
+arr.reduce(multiply);
+//720
+
+let arr = [1,2,3,4,5,6];
+function evenAdd(x, y) {
+  if (y%2==0){
+    return x + y;
+  }
+    return x;
+}
+arr.reduce(evenAdd);
